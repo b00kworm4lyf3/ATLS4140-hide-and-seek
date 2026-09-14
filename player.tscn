@@ -19,7 +19,8 @@ albedo_texture = SubResource("GradientTexture1D_hqtel")
 [node name="player" type="CharacterBody3D" unique_id=739547393]
 script = ExtResource("1_4flbx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1465389447]
+[node name="playerMesh" type="MeshInstance3D" parent="." unique_id=1465389447]
+unique_name_in_owner = true
 mesh = SubResource("CapsuleMesh_gmbx4")
 surface_material_override/0 = SubResource("StandardMaterial3D_onrkg")
 

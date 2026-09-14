@@ -6,13 +6,14 @@ extends CharacterBody3D
 @export_group("Movement")
 @export var move_speed := 8.0
 @export var accel := 20.0
+@export var rot_speed := 12.0
 
 var _cam_input_dir := Vector2.ZERO
-var _last_mvmt_dir := Vector3.BACK
+var _last_mvmt_dir := Vector3.FORWARD
 
 @onready var _cam_pivot: Node3D = %camPivot
 @onready var _cam: Camera3D = %Camera3D
-# @onready var _skin: skinNodeName = %skinNodeName #no skin currently, using pill
+@onready var _skin: MeshInstance3D = %playerMesh
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
@@ -35,6 +36,8 @@ func _physics_process(delta: float) -> void:
 
 	var move_dir := fwd*raw_inut.y + right*raw_inut.x
 
+	var target_angle := Vector3.FORWARD.signed_angle_to(_last_mvmt_dir, Vector3.UP)
+
 	move_dir.y = 0.0
 	move_dir = move_dir.normalized()
 
@@ -46,5 +49,10 @@ func _physics_process(delta: float) -> void:
 	_cam_pivot.rotation.y -= _cam_input_dir.x*delta
 
 	_cam_input_dir = Vector2.ZERO
+
+	if move_dir.length() > 0.2:
+		_last_mvmt_dir = move_dir
+
+	_skin.global_rotation.y = lerp_angle(_skin.rotation.y, target_angle, rot_speed * delta)
 
 	move_and_slide()
