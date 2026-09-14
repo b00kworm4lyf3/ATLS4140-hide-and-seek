@@ -1,0 +1,50 @@
+extends CharacterBody3D
+
+@export_group("Camera")
+@export_range(0.0, 1.0) var mouse_sensitivity := 0.25
+
+@export_group("Movement")
+@export var move_speed := 8.0
+@export var accel := 20.0
+
+var _cam_input_dir := Vector2.ZERO
+var _last_mvmt_dir := Vector3.BACK
+
+@onready var _cam_pivot: Node3D = %camPivot
+@onready var _cam: Camera3D = %Camera3D
+# @onready var _skin: skinNodeName = %skinNodeName #no skin currently, using pill
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("left_click"):
+		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if event.is_action_pressed("ui_cancel"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+func _unhandled_input(event: InputEvent) -> void:
+	var is_cam_motion := (
+		event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED
+	)
+
+	if is_cam_motion:
+		_cam_input_dir = event.screen_relative * mouse_sensitivity
+
+func _physics_process(delta: float) -> void:
+	var raw_inut:= Input.get_vector("move_left", "move_right", "move_up", "move_down")
+	var fwd := _cam.global_basis.z
+	var right := _cam.global_basis.x
+
+	var move_dir := fwd*raw_inut.y + right*raw_inut.x
+
+	move_dir.y = 0.0
+	move_dir = move_dir.normalized()
+
+	velocity = velocity.move_toward(move_dir*move_speed, accel*delta)
+
+	_cam_pivot.rotation.x -= _cam_input_dir.y*delta
+	_cam_pivot.rotation.x = clamp(_cam_pivot.rotation.x, -PI/6.0, PI/3.0)
+
+	_cam_pivot.rotation.y -= _cam_input_dir.x*delta
+
+	_cam_input_dir = Vector2.ZERO
+
+	move_and_slide()

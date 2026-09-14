@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://cq4om54yk6uqt"]
+
+[ext_resource type="Script" uid="uid://du3pqkt45wyt8" path="res://player.gd" id="1_4flbx"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gmbx4"]
+
+[sub_resource type="Gradient" id="Gradient_4flbx"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hqtel"]
+gradient = SubResource("Gradient_4flbx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_onrkg"]
+albedo_texture = SubResource("GradientTexture1D_hqtel")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gmbx4"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_4flbx"]
+
+[node name="player" type="CharacterBody3D" unique_id=739547393]
+script = ExtResource("1_4flbx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1465389447]
+mesh = SubResource("CapsuleMesh_gmbx4")
+surface_material_override/0 = SubResource("StandardMaterial3D_onrkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1195450684]
+shape = SubResource("CapsuleShape3D_gmbx4")
+
+[node name="camPivot" type="Node3D" parent="." unique_id=1642468167]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.43375456, 0)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="camPivot" unique_id=80614984]
+transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 0, 0)
+shape = SubResource("SphereShape3D_4flbx")
+spring_length = 5.0
+
+[node name="Camera3D" type="Camera3D" parent="camPivot/SpringArm3D" unique_id=1776963885]
+unique_name_in_owner = true

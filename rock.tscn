@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://fy50hv88vufv"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gmbx4"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gmbx4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ip1k6"]
+albedo_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+
+[node name="rock" type="StaticBody3D" unique_id=582626075]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2102583768]
+shape = SubResource("SphereShape3D_gmbx4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1041504381]
+mesh = SubResource("SphereMesh_gmbx4")
+surface_material_override/0 = SubResource("StandardMaterial3D_ip1k6")
