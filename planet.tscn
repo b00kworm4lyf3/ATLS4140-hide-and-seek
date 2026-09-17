@@ -2,12 +2,21 @@
 
 [sub_resource type="SphereMesh" id="SphereMesh_gmbx4"]
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ryrav"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7jktm"]
+noise = SubResource("FastNoiseLite_ryrav")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_feb5d"]
+albedo_texture = SubResource("NoiseTexture2D_7jktm")
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_gmbx4"]
 
 [node name="planet" type="StaticBody3D" unique_id=1187941777]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=660381977]
 mesh = SubResource("SphereMesh_gmbx4")
+surface_material_override/0 = SubResource("StandardMaterial3D_feb5d")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1742726120]
 shape = SubResource("SphereShape3D_gmbx4")

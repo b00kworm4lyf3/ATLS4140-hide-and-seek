@@ -59,3 +59,10 @@ move_down={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+
+[shader_globals]
+
+CURVE={
+"type": "float",
+"value": 0.01
+}

@@ -1,50 +1,26 @@
 [gd_scene format=3 uid="uid://y861reemlveb"]
 
 [ext_resource type="PackedScene" uid="uid://cq4om54yk6uqt" path="res://player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://dry0c430u7cl5" path="res://test_ground.tscn" id="1_e2o6t"]
 
-[sub_resource type="HeightMapShape3D" id="HeightMapShape3D_ip1k6"]
+[sub_resource type="Environment" id="Environment_ip1k6"]
+background_mode = 1
+background_color = Color(0.5222768, 0.6771253, 1, 1)
+ambient_light_color = Color(0.4443136, 0.62112236, 1, 1)
 
-[sub_resource type="PlaneMesh" id="PlaneMesh_ip1k6"]
-
-[sub_resource type="Gradient" id="Gradient_215e1"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_iotsf"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_mfdv2"]
-noise = SubResource("FastNoiseLite_iotsf")
-color_ramp = SubResource("Gradient_215e1")
-
-[sub_resource type="Gradient" id="Gradient_fc0e3"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_feb5d"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_e2o6t"]
-noise = SubResource("FastNoiseLite_feb5d")
-color_ramp = SubResource("Gradient_fc0e3")
-as_normal_map = true
-normalize = false
-bump_strength = 32.0
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80nbo"]
-albedo_texture = SubResource("NoiseTexture2D_mfdv2")
-normal_enabled = true
-normal_texture = SubResource("NoiseTexture2D_e2o6t")
+[sub_resource type="Compositor" id="Compositor_5tm6j"]
 
 [node name="game" type="Node3D" unique_id=1344240427]
 
+[node name="testGround" parent="." unique_id=705686265 instance=ExtResource("1_e2o6t")]
+transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
+
 [node name="player" parent="." unique_id=739547393 instance=ExtResource("1_80nbo")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.29893816, 0)
-
-[node name="testGround" type="StaticBody3D" parent="." unique_id=1219354641]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="testGround" unique_id=1154985840]
-transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 0, 0)
-shape = SubResource("HeightMapShape3D_ip1k6")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="testGround" unique_id=2079798337]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0)
-mesh = SubResource("PlaneMesh_ip1k6")
-surface_material_override/0 = SubResource("StandardMaterial3D_80nbo")
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.31542015, 0)
 
 [node name="testLight" type="DirectionalLight3D" parent="." unique_id=1027990675]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1973772246]
+environment = SubResource("Environment_ip1k6")
+compositor = SubResource("Compositor_5tm6j")
