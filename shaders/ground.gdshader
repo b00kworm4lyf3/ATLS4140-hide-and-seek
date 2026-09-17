@@ -7,7 +7,7 @@ uniform sampler2D BASE_TEX;
 uniform vec4 color = vec4(0.1, 0.7, 0.5, 1.0);
 
 void vertex() {
-	curve_ground(VERTEX, VIEW_MATRIX, INV_VIEW_MATRIX);
+	curve_ground(VERTEX, NORMAL, VIEW_MATRIX, INV_VIEW_MATRIX);
 }
 
 void fragment() {

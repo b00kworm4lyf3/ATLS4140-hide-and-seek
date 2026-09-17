@@ -19,7 +19,7 @@ transform = Transform3D(25, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 0)
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.31542015, 0)
 
 [node name="testLight" type="DirectionalLight3D" parent="." unique_id=1027990675]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 3, 0)
+transform = Transform3D(1, 0, 0, 0, -0.8870978, 0.46158162, 0, -0.46158162, -0.8870978, 0, -78.27873, -127.99657)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1973772246]
 environment = SubResource("Environment_ip1k6")
