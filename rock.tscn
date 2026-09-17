@@ -1,11 +1,25 @@
 [gd_scene format=3 uid="uid://fy50hv88vufv"]
 
+[ext_resource type="Shader" uid="uid://ckh3oa2pvu031" path="res://shaders/ground.gdshader" id="1_o0qsl"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_gmbx4"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_gmbx4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ip1k6"]
-albedo_color = Color(0.41215247, 0.41215247, 0.41215247, 1)
+[sub_resource type="Gradient" id="Gradient_44ud8"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d2g23"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_gvmkm"]
+noise = SubResource("FastNoiseLite_d2g23")
+color_ramp = SubResource("Gradient_44ud8")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_nnvrw"]
+render_priority = 0
+shader = ExtResource("1_o0qsl")
+shader_parameter/BASE_TEX = SubResource("NoiseTexture2D_gvmkm")
+shader_parameter/color = Vector4(0.1, 0.1, 0.1, 1)
 
 [node name="rock" type="StaticBody3D" unique_id=582626075]
 
@@ -14,4 +28,4 @@ shape = SubResource("SphereShape3D_gmbx4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1041504381]
 mesh = SubResource("SphereMesh_gmbx4")
-surface_material_override/0 = SubResource("StandardMaterial3D_ip1k6")
+surface_material_override/0 = SubResource("ShaderMaterial_nnvrw")

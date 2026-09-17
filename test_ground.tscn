@@ -21,7 +21,7 @@ seamless = true
 render_priority = 0
 shader = ExtResource("1_mbbig")
 shader_parameter/BASE_TEX = SubResource("NoiseTexture2D_mdqvv")
-shader_parameter/color = Vector4(0.1, 0.7, 0.5, 1)
+shader_parameter/color = Vector4(0.2, 0.15, 0.15, 1)
 
 [node name="testGround" type="StaticBody3D" unique_id=705686265]
 
