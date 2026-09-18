@@ -10,16 +10,24 @@ extends CharacterBody3D
 
 var _cam_input_dir := Vector2.ZERO
 var _last_mvmt_dir := Vector3.FORWARD
+var _in_range: Array = []
 
 @onready var _cam_pivot: Node3D = %camPivot
 @onready var _cam: Camera3D = %Camera3D
 @onready var _skin: MeshInstance3D = %playerMesh
+@onready var _talkArea: Area3D = %talkArea
+
+func _ready() -> void:
+	_talkArea.body_entered.connect(_on_talk_entered)
+	_talkArea.body_exited.connect(_on_talk_exited)
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("left_click"):
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	if event.is_action_pressed("ui_cancel"):
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if event.is_action_pressed("talk") and not _in_range.is_empty():
+		_in_range[0].catch()
 
 func _unhandled_input(event: InputEvent) -> void:
 	var is_cam_motion := (
@@ -56,3 +64,10 @@ func _physics_process(delta: float) -> void:
 	_skin.global_rotation.y = lerp_angle(_skin.rotation.y, target_angle, rot_speed * delta)
 
 	move_and_slide()
+
+func _on_talk_entered(body: Node) -> void:
+	if body.is_in_group("faeries"):
+		_in_range.append(body)
+
+func _on_talk_exited(body: Node) -> void:
+	_in_range.erase(body)

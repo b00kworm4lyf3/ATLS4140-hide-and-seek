@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cq4om54yk6uqt" path="res://player.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://dry0c430u7cl5" path="res://test_ground.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://cewi8yt82ybbr" path="res://scripts/test_trees_and_rocks.gd" id="2_feb5d"]
+[ext_resource type="Script" uid="uid://cxlurx2bph22k" path="res://scripts/test_faeries.gd" id="4_fc0e3"]
+[ext_resource type="Script" uid="uid://brv58tacmebpt" path="res://displayWallet.gd" id="5_7jktm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_feb5d"]
 sky_top_color = Color(0.27953693, 0.29248175, 0.6494278, 1)
@@ -62,3 +64,13 @@ shadow_blur = 4.0
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 script = ExtResource("2_feb5d")
 count = 150
+
+[node name="testFaeries" type="Node3D" parent="." unique_id=1076267197]
+script = ExtResource("4_fc0e3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=674860711]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1312093603]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("5_7jktm")

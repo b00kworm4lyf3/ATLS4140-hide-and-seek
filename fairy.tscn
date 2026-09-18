@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://sry83n6c758u"]
+
+[ext_resource type="Script" uid="uid://5cllchyeam0t" path="res://scripts/fairy.gd" id="1_1xv88"]
+[ext_resource type="Shader" uid="uid://ckh3oa2pvu031" path="res://shaders/ground.gdshader" id="1_bwnlq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_gmbx4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_oku8r"]
+render_priority = 0
+shader = ExtResource("1_bwnlq")
+shader_parameter/color = Vector4(0.8, 1, 0.1, 1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_gmbx4"]
+
+[node name="fairy" type="CharacterBody3D" unique_id=1327273830]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_1xv88")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=47090]
+mesh = SubResource("SphereMesh_gmbx4")
+surface_material_override/0 = SubResource("ShaderMaterial_oku8r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=288312299]
+shape = SubResource("SphereShape3D_gmbx4")

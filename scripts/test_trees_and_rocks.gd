@@ -11,6 +11,7 @@ func _ready() -> void:
 		if pos.length() < area:
 			var t := tree.instantiate() as StaticBody3D
 			t.position = pos
+			t.add_to_group("trees")
 			add_child(t)
 
 		if i%2 == 0:
@@ -18,6 +19,7 @@ func _ready() -> void:
 			if pos.length() < area:
 				var r := rock.instantiate()
 				r.position = pos
+				r.add_to_group("rocks")
 				add_child(r)
 
 	var radVect = Vector3.FORWARD * area
@@ -29,4 +31,5 @@ func _ready() -> void:
 		r.position = radVect + Vector3(randf_range(-2,2), 0, randf_range(-2,2))
 		r.scale = s
 		radVect = radVect.rotated(Vector3.UP, ang)
+		r.add_to_group("wall")
 		add_child(r)

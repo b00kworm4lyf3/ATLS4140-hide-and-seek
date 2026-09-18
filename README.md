@@ -20,5 +20,11 @@ What happens when you catch them? Do they give you something?
 
 ### Assignment 2: Loop Implementation
 
-- Catch faeries (what happens when you do?)
-- Player gets a flashlight at night to help [BLOCKED BY DAY/NIGHT]
+- 'Catch' faeries to get gold/silver (faucet + secondary loop)
+    - if you don't use it fast enough it degrades and turns into leaves/acorns/stones/etc (faucet/converter and drives soft gate of better items)
+    - can use degraded currency to attract faeries to you or make them easier to see (sink)
+    - need gold/silver in order to buy or upgrade fae items (such as a lantern to help find night fae) (sink + secondary loop)
+- Befriend faeries (main loop)
+    - use degraded items to attract fae + develop friendship (progression)
+    - collect special item from them (faucet to access rarer fae, not for prototype though)
+    - get invited to their homes (hard gate -- yay another place to go!)
