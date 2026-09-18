@@ -4,27 +4,59 @@
 [ext_resource type="PackedScene" uid="uid://dry0c430u7cl5" path="res://test_ground.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://cewi8yt82ybbr" path="res://scripts/test_trees_and_rocks.gd" id="2_feb5d"]
 
-[sub_resource type="Environment" id="Environment_ip1k6"]
-background_mode = 1
-background_color = Color(0.5222768, 0.6771253, 1, 1)
-ambient_light_color = Color(0.4443136, 0.62112236, 1, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_feb5d"]
+sky_top_color = Color(0.27953693, 0.29248175, 0.6494278, 1)
+sky_horizon_color = Color(0.56096095, 0.56076753, 0.63656753, 1)
+ground_bottom_color = Color(0.22194266, 0.20822427, 0.15447819, 1)
+ground_horizon_color = Color(0.56096095, 0.56076753, 0.63656753, 1)
+energy_multiplier = 0.4
 
-[sub_resource type="Compositor" id="Compositor_5tm6j"]
+[sub_resource type="Sky" id="Sky_fc0e3"]
+sky_material = SubResource("ProceduralSkyMaterial_feb5d")
+
+[sub_resource type="Environment" id="Environment_7jktm"]
+background_mode = 2
+sky = SubResource("Sky_fc0e3")
+tonemap_mode = 2
+ssao_enabled = true
+glow_enabled = true
+glow_bloom = 1.0
+glow_blend_mode = 0
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.23021016, 0.24651673, 0.43717325, 1)
+fog_light_energy = 0.5
+fog_sun_scatter = 0.25
+fog_density = 0.5
+fog_aerial_perspective = 0.5
+fog_height_density = 0.75
+fog_depth_begin = 0.0
+fog_depth_end = 4000.0
+volumetric_fog_density = 0.01
+volumetric_fog_albedo = Color(0.5019608, 0.34901962, 0.8980392, 1)
+volumetric_fog_emission = Color(0.14226073, 0.12237669, 0.3931967, 1)
+volumetric_fog_emission_energy = 15.0
+volumetric_fog_ambient_inject = 1.06
+volumetric_fog_sky_affect = 0.316
 
 [node name="game" type="Node3D" unique_id=1344240427]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=517340373]
+environment = SubResource("Environment_7jktm")
 
 [node name="testGround" parent="." unique_id=705686265 instance=ExtResource("1_e2o6t")]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 
 [node name="player" parent="." unique_id=739547393 instance=ExtResource("1_80nbo")]
-transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.31542015, 0)
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.1508748, 0)
 
 [node name="testLight" type="DirectionalLight3D" parent="." unique_id=1027990675]
-transform = Transform3D(1, 0, 0, 0, -0.8870978, 0.46158162, 0, -0.46158162, -0.8870978, 0, -78.27873, -127.99657)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1973772246]
-environment = SubResource("Environment_ip1k6")
-compositor = SubResource("Compositor_5tm6j")
+transform = Transform3D(1, 0, 0, 0, -0.48917478, 0.8721858, 0, -0.8721858, -0.48917478, 0, 9.734483, -11.518443)
+light_color = Color(0.82171726, 0.6385573, 0.53544587, 1)
+light_energy = 1.5
+shadow_enabled = true
+shadow_opacity = 0.5
+shadow_blur = 4.0
 
 [node name="testTreesandRocks" type="Node3D" parent="." unique_id=1465621134]
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)

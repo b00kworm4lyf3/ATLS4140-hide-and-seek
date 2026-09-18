@@ -6,15 +6,15 @@ extends Node3D
 @export var area := 60.0
 
 func _ready() -> void:
-	for i in count:
-		var pos = Vector3(randf_range(-area, area), 0.0, randf_range(-area, area))
+	for i in (count*2):
+		var pos = Vector3(randf_range(-area+2, area-2), 0.0, randf_range(-area+2, area-2))
 		if pos.length() < area:
 			var t := tree.instantiate() as StaticBody3D
 			t.position = pos
 			add_child(t)
 
 		if i%2 == 0:
-			pos = Vector3(randf_range(-area, area), 0.0, randf_range(-area, area))
+			pos = Vector3(randf_range(-area+2, area-2), 0.0, randf_range(-area+2, area-2))
 			if pos.length() < area:
 				var r := rock.instantiate()
 				r.position = pos
@@ -24,9 +24,9 @@ func _ready() -> void:
 	var ang = TAU/float(count)
 	for i in range(count):
 		var r := rock.instantiate()
-		var s := Vector3(randf_range(3, 10), randf_range(3, 10), randf_range(3, 10))
+		var s := Vector3(randf_range(3, 10), randf_range(5, 13), randf_range(3, 10))
 
-		r.position = radVect + Vector3(randf_range(-2,0), 0, randf_range(-2,0))
+		r.position = radVect + Vector3(randf_range(-2,2), 0, randf_range(-2,2))
 		r.scale = s
 		radVect = radVect.rotated(Vector3.UP, ang)
 		add_child(r)

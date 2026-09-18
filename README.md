@@ -12,13 +12,13 @@ What happens when you catch them? Do they give you something?
 
 ### Assignment 1: Your First Game (Rebuild/Revamp)
 
-- 3D with player camera control (Adapted from [GDQuest Tutorial](https://www.youtube.com/watch?v=JlgZtOFMdfc))
-- Procedural forest scenery: trees, rocks, water
-- Day/night cycle
+- 3D with player camera control (from [GDQuest Tutorial](https://www.youtube.com/watch?v=JlgZtOFMdfc))
+- Procedural forest scenery: trees, rocks, water [TODO]
+- Day/night cycle [TODO]
 - Faeries spawn out of sight and hide behind trees/rocks/etc
 - Mostly placeholder assets until it's all functional
 
 ### Assignment 2: Loop Implementation
 
 - Catch faeries (what happens when you do?)
-- Player gets a flashlight at night to help
+- Player gets a flashlight at night to help [BLOCKED BY DAY/NIGHT]
