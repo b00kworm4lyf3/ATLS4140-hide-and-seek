@@ -30,4 +30,3 @@ compositor = SubResource("Compositor_5tm6j")
 transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
 script = ExtResource("2_feb5d")
 count = 150
-area = 62.0
