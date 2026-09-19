@@ -31,6 +31,12 @@ unique_name_in_owner = true
 mesh = SubResource("CapsuleMesh_gmbx4")
 surface_material_override/0 = SubResource("StandardMaterial3D_onrkg")
 
+[node name="lantern" type="OmniLight3D" parent="playerMesh" unique_id=672219827]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0, 0, -1)
+visible = false
+light_color = Color(0.9981938, 0.7656167, 3.85046e-07, 1)
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1195450684]
 shape = SubResource("CapsuleShape3D_gmbx4")
 

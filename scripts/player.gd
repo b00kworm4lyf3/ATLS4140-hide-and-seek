@@ -11,11 +11,13 @@ extends CharacterBody3D
 var _cam_input_dir := Vector2.ZERO
 var _last_mvmt_dir := Vector3.FORWARD
 var _in_range: Array = []
+var _has_lantern := false
 
 @onready var _cam_pivot: Node3D = %camPivot
 @onready var _cam: Camera3D = %Camera3D
 @onready var _skin: MeshInstance3D = %playerMesh
 @onready var _talkArea: Area3D = %talkArea
+@onready var _lantern: OmniLight3D = %lantern
 
 func _ready() -> void:
 	_talkArea.body_entered.connect(_on_talk_entered)
@@ -43,6 +45,10 @@ func _input(event: InputEvent) -> void:
 					closestFae = fae
 					minDist = d
 			closestFae.lure(global_position)
+	if event.is_action_pressed("buy"):
+		if Wallet.spend_gold(30):
+			_has_lantern = true
+			_lantern.visible = true
 
 
 func _unhandled_input(event: InputEvent) -> void:
