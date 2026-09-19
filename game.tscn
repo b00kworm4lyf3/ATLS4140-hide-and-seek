@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dry0c430u7cl5" path="res://test_ground.tscn" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://cewi8yt82ybbr" path="res://scripts/test_trees_and_rocks.gd" id="2_feb5d"]
 [ext_resource type="Script" uid="uid://cxlurx2bph22k" path="res://scripts/test_faeries.gd" id="4_fc0e3"]
-[ext_resource type="Script" uid="uid://brv58tacmebpt" path="res://displayWallet.gd" id="5_7jktm"]
+[ext_resource type="Script" uid="uid://brv58tacmebpt" path="res://scripts/displayWallet.gd" id="5_7jktm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_feb5d"]
 sky_top_color = Color(0.27953693, 0.29248175, 0.6494278, 1)

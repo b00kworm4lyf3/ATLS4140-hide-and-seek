@@ -22,6 +22,13 @@ func add_coins(amount: int, kind: String) -> void:
 
 #func spend_coins(cost: int) -> void:
 
+func spend_decay(kind: String, cost: int) -> bool:
+    if _decayed.get(kind, 0) < cost:
+        return false
+    _decayed[kind] -= cost
+    changed.emit()
+    return true
+
 func decay(lifetime: int) -> void:
     var now := Time.get_ticks_msec()
     var did_change = false

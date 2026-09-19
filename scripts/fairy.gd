@@ -33,3 +33,6 @@ func _process(delta: float) -> void:
 func catch() -> void:
 	Wallet.add_coins(5, "stone") #TODO: Update when more fae types
 	_target = position + Vector3(randf_range(-8, 8), 0, randf_range(-8, 8)) #placeholder flee, rehide behind rock
+
+func lure(to: Vector3) -> void:
+	_target = to

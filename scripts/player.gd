@@ -28,6 +28,22 @@ func _input(event: InputEvent) -> void:
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if event.is_action_pressed("talk") and not _in_range.is_empty():
 		_in_range[0].catch()
+	if event.is_action_pressed("spend"):
+		if Wallet.spend_decay("stone", 7): #TODO: update to use selected type
+			var faeries := get_tree().get_nodes_in_group("faeries")
+
+			if faeries.is_empty():
+				return #player spends stones but no faerie comes
+			
+			var closestFae := faeries[0]
+			var minDist: float = global_position.distance_to(closestFae.position)
+			for fae in faeries:
+				var d := global_position.distance_to(fae.position)
+				if d < minDist:
+					closestFae = fae
+					minDist = d
+			closestFae.lure(global_position)
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	var is_cam_motion := (
