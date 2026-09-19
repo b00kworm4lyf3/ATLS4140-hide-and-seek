@@ -19,15 +19,18 @@ sky_material = SubResource("ProceduralSkyMaterial_feb5d")
 [sub_resource type="Environment" id="Environment_7jktm"]
 background_mode = 2
 sky = SubResource("Sky_fc0e3")
+ambient_light_sky_contribution = 0.5
+ambient_light_energy = 0.5
 tonemap_mode = 2
 ssao_enabled = true
 glow_enabled = true
+glow_strength = 0.5
 glow_bloom = 1.0
 glow_blend_mode = 0
 fog_enabled = true
 fog_mode = 1
 fog_light_color = Color(0.23021016, 0.24651673, 0.43717325, 1)
-fog_light_energy = 0.5
+fog_light_energy = 0.25
 fog_sun_scatter = 0.25
 fog_density = 0.5
 fog_aerial_perspective = 0.5
@@ -53,9 +56,9 @@ transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.1508748, 0)
 
 [node name="testLight" type="DirectionalLight3D" parent="." unique_id=1027990675]
-transform = Transform3D(1, 0, 0, 0, -0.48917478, 0.8721858, 0, -0.8721858, -0.48917478, 0, 9.734483, -11.518443)
+transform = Transform3D(-0.52943784, -0.41499084, 0.73991776, -0.8483488, 0.25898764, -0.46176818, 0, -0.8721858, -0.4891748, 88.4064, -98.66411, -11.518443)
 light_color = Color(0.82171726, 0.6385573, 0.53544587, 1)
-light_energy = 1.5
+light_energy = 0.05
 shadow_enabled = true
 shadow_opacity = 0.5
 shadow_blur = 4.0
