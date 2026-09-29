@@ -4,7 +4,7 @@ signal changed
 
 var _coins: Array[Dictionary] = [] #{amount: int, born: int, kind: string}
 var _decayed: Dictionary = {} #{"type": amount}
-var life := 120000 #240000 #four minute decay time
+var life := 45000 #240000 #four minute decay time
 
 func _ready() -> void:
 	var t := Timer.new()

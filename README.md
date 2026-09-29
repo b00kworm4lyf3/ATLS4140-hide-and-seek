@@ -28,3 +28,21 @@ What happens when you catch them? Do they give you something?
     - use degraded items to attract fae + develop friendship (progression)
     - collect special item from them (faucet to access rarer fae, not for prototype though)
     - get invited to their homes (hard gate -- yay another place to go!)
+
+### Assignment 4: Gameplay Levels
+#### 'Level' Objective: 
+Teach the player the catch and lure loop and then require them to use it.
+#### Implementation
+- Design my game space to better teach the catch -> decay -> lure loop
+    - Player starts in a forest clearing with many fae
+    - 'click' instruction for the first few fae encountered
+    - once those have all been caught the rest of the map is has fewer fae, need to lure
+- Implement day/night cycle so player needs to use lantern at night
+    - Night time is really difficult to play through without the lantern
+    - Buying the lantern is the end of this 'level'
+- Make the 'level' feel better:
+    - Tune resource decay time
+    - Add lantern on/off toggle
+#### Stretch Goals
+- Get fae befriending working, once one has hit the highest level the player has 'won' that section
+
