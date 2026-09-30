@@ -89,7 +89,10 @@ func _physics_process(delta: float) -> void:
 
 func _on_talk_entered(body: Node) -> void:
 	if body.is_in_group("faeries"):
+		body.prompt(true)
 		_in_range.append(body)
 
 func _on_talk_exited(body: Node) -> void:
-	_in_range.erase(body)
+	if body.is_in_group("faeries"):
+		body.prompt(false)
+		_in_range.erase(body)

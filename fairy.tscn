@@ -27,3 +27,12 @@ surface_material_override/0 = SubResource("ShaderMaterial_oku8r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=288312299]
 shape = SubResource("SphereShape3D_gmbx4")
+
+[node name="Label3D" type="Label3D" parent="." unique_id=489068846]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34378093, 0)
+visible = false
+billboard = 1
+outline_modulate = Color(0.20086929, 1.6171933e-05, 0.80679625, 1)
+text = "click!"
+font_size = 28
+outline_size = 8

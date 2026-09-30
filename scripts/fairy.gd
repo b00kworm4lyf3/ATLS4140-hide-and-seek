@@ -10,6 +10,8 @@ var _target := Vector3.ZERO
 var _base_y := 0.0
 var _t := 0.0
 
+static var caught := 0
+
 func _ready() -> void:
 	add_to_group("faeries")
 
@@ -36,6 +38,8 @@ func _process(delta: float) -> void:
 
 func catch(from: Vector3) -> void:
 	Wallet.add_coins(5, "stone") #TODO: Update when more fae types
+	caught += 1
+	prompt(false)
 	#_target = position + Vector3(randf_range(-8, 8), 0, randf_range(-8, 8)) #placeholder flee, rehide behind rock
 	_target = find_hide(from, true)
 
@@ -56,3 +60,7 @@ func find_hide(from: Vector3, furthest := false, group := "rocks") -> Vector3:
 	to_rock.y = 0
 	to_rock = to_rock.normalized()
 	return pickRock.global_position + to_rock
+
+func prompt(vis: bool) -> void:
+	if caught < 3:
+		get_node("Label3D").visible = vis
