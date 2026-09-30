@@ -38,7 +38,7 @@ Teach the player the catch and lure loop and then require them to use it.
     - Player starts in a forest clearing with many fae (2 hours)
     - 'click' instruction for the first few fae encountered (1 hour)
     - once gold decays prompt shift to lure
-    - modulate gold label to bring it to player's attention when vals change 
+    - modulate gold label to bring it to player's attention when vals change (1 hour)
 
 - Implement day/night cycle so player needs to use lantern at night
     - Night time is really difficult to play through without the lantern

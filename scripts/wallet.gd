@@ -1,6 +1,8 @@
 extends Node
 
 signal changed
+signal added
+signal decayed
 
 var _coins: Array[Dictionary] = [] #{amount: int, born: int, kind: string}
 var _decayed: Dictionary = {} #{"type": amount}
@@ -19,6 +21,7 @@ func _on_decay_tick() -> void:
 func add_coins(amount: int, kind: String) -> void:
 	_coins.append({"amount": amount, "born": Time.get_ticks_msec(), "kind": kind})
 	changed.emit()
+	added.emit()
 
 func spend_gold(cost: int) -> bool:
 	if _coins.is_empty() or total_gold() < cost:
@@ -54,7 +57,9 @@ func decay(lifetime: int) -> void:
 		_decayed[k] = _decayed.get(k, 0) + coin["amount"]
 		did_change = true
 
-	if did_change: changed.emit()
+	if did_change: 
+		changed.emit()
+		decayed.emit()
 
 func all_decayed() -> Dictionary:
 	return _decayed
