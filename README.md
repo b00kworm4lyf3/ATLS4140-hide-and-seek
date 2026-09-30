@@ -34,7 +34,7 @@ What happens when you catch them? Do they give you something?
 Teach the player the catch and lure loop and then require them to use it.
 #### Implementation
 - Design my game space to better teach the catch -> decay -> lure loop
-    - Player starts in a forest clearing with many fae
+    - Player starts in a forest clearing with many fae (2 hours)
     - 'click' instruction for the first few fae encountered
     - once those have all been caught the rest of the map is has fewer fae, need to lure
 - Implement day/night cycle so player needs to use lantern at night
@@ -42,6 +42,7 @@ Teach the player the catch and lure loop and then require them to use it.
     - Buying the lantern is the end of this 'level'
 - Make the 'level' feel better:
     - Tune resource decay time
+    - Fae give set gold amounts (starting fae have 1, next have 3, etc)
     - Add lantern on/off toggle
 #### Stretch Goals
 - Get fae befriending working, once one has hit the highest level the player has 'won' that section

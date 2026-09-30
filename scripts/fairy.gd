@@ -4,6 +4,8 @@ var move_speed := 0.0
 var bob_height := 0.0
 var bob_speed := 0.0
 
+var hide_grp := ""
+
 var _target := Vector3.ZERO
 var _base_y := 0.0
 var _t := 0.0
@@ -12,11 +14,11 @@ func _ready() -> void:
 	add_to_group("faeries")
 
 	move_speed = randf_range(5.0, 10.0)
-	bob_height = randf_range(0.3, 0.5)
+	bob_height = randf_range(0.0, 0.2)
 	bob_speed = randf_range(2.0, 4.0)
 
 	_base_y = position.y
-	_target = find_hide(Vector3.ZERO)
+	_target = find_hide(Vector3.ZERO, false, hide_grp)
 
 func _process(delta: float) -> void:
 	_t += delta
@@ -40,8 +42,8 @@ func catch(from: Vector3) -> void:
 func lure(to: Vector3) -> void:
 	_target = to
 
-func find_hide(from: Vector3, furthest := false) -> Vector3:
-	var rocks:= get_tree().get_nodes_in_group("rocks")
+func find_hide(from: Vector3, furthest := false, group := "rocks") -> Vector3:
+	var rocks:= get_tree().get_nodes_in_group(group)
 	var pickRock := rocks[0]
 	var bestDist: float = global_position.distance_to(pickRock.global_position)
 	for rock in rocks:

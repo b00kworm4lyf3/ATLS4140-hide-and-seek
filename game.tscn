@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cq4om54yk6uqt" path="res://player.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://dry0c430u7cl5" path="res://test_ground.tscn" id="1_e2o6t"]
-[ext_resource type="Script" uid="uid://cewi8yt82ybbr" path="res://scripts/test_trees_and_rocks.gd" id="2_feb5d"]
+[ext_resource type="Script" uid="uid://cxrvf5quvo3lk" path="res://scripts/test_trees_and_rocks_zones.gd" id="3_7jktm"]
 [ext_resource type="Script" uid="uid://cxlurx2bph22k" path="res://scripts/test_faeries.gd" id="4_fc0e3"]
 [ext_resource type="Script" uid="uid://brv58tacmebpt" path="res://scripts/displayWallet.gd" id="5_7jktm"]
 
@@ -24,6 +24,8 @@ ambient_light_energy = 0.5
 tonemap_mode = 2
 ssao_enabled = true
 glow_enabled = true
+glow_normalized = true
+glow_intensity = 3.75
 glow_strength = 0.5
 glow_bloom = 1.0
 glow_blend_mode = 0
@@ -50,22 +52,22 @@ volumetric_fog_sky_affect = 0.316
 environment = SubResource("Environment_7jktm")
 
 [node name="testGround" parent="." unique_id=705686265 instance=ExtResource("1_e2o6t")]
-transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, 0, 0)
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 0)
 
 [node name="player" parent="." unique_id=739547393 instance=ExtResource("1_80nbo")]
 transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.1508748, 0)
 
 [node name="testLight" type="DirectionalLight3D" parent="." unique_id=1027990675]
-transform = Transform3D(-0.52943784, -0.41499084, 0.73991776, -0.8483488, 0.25898764, -0.46176818, 0, -0.8721858, -0.4891748, 88.4064, -98.66411, -11.518443)
+transform = Transform3D(-0.17583689, -0.9631046, -0.20374264, -0.50994277, -0.0879204, 0.85570353, -0.842045, 0.25436133, -0.47566855, -1.5352783, 0.5146332, -39.660286)
 light_color = Color(0.82171726, 0.6385573, 0.53544587, 1)
-light_energy = 0.05
+light_energy = 4.0
 shadow_enabled = true
 shadow_opacity = 0.5
 shadow_blur = 4.0
 
 [node name="testTreesandRocks" type="Node3D" parent="." unique_id=1465621134]
-transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0, 0, 0)
-script = ExtResource("2_feb5d")
+unique_name_in_owner = true
+script = ExtResource("3_7jktm")
 count = 150
 
 [node name="testFaeries" type="Node3D" parent="." unique_id=1076267197]
