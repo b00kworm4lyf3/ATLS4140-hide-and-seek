@@ -3,10 +3,12 @@ extends Node
 signal changed
 signal added
 signal decayed
+signal spend_decayed
+
 
 var _coins: Array[Dictionary] = [] #{amount: int, born: int, kind: string}
 var _decayed: Dictionary = {} #{"type": amount}
-var life := 30000 #240000 #four minute decay time
+var life := 20000 #240000 #four minute decay time
 
 func _ready() -> void:
 	var t := Timer.new()
@@ -45,6 +47,7 @@ func spend_decay(kind: String, cost: int) -> bool:
 		return false
 	_decayed[kind] -= cost
 	changed.emit()
+	spend_decayed.emit()
 	return true
 
 func decay(lifetime: int) -> void:

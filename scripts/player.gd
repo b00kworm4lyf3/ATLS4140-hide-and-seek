@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+signal lantern_bought
+
 @export_group("Camera")
 @export_range(0.0, 1.0) var mouse_sensitivity := 0.25
 
@@ -49,6 +51,7 @@ func _input(event: InputEvent) -> void:
 		if Wallet.spend_gold(30):
 			_has_lantern = true
 			_lantern.visible = true
+			lantern_bought.emit()
 
 
 func _unhandled_input(event: InputEvent) -> void:

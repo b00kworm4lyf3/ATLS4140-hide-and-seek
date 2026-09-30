@@ -30,19 +30,21 @@ What happens when you catch them? Do they give you something?
     - get invited to their homes (hard gate -- yay another place to go!)
 
 ### Assignment 4: Gameplay Levels
-#### 'Level' Objective: 
-Teach the player the catch and lure loop and then require them to use it.
+#### 'Level' Objective + Reflection: 
+Teach the player the catch and lure loop and then require them to use it.  
+
+I'm not super happy with how I implemented this, I'll need to refactor it into a tutorial autoload because right now everything is super spread out and tangled.
 
 #### Implementation
 - Design my game space to better teach the catch -> decay -> lure loop
     - Player starts in a forest clearing with many fae (2 hours)
     - 'click' instruction for the first few fae encountered (1 hour)
-    - once gold decays prompt shift to lure
+    - once gold decays prompt shift to lure (1 hour)
     - modulate gold label to bring it to player's attention when vals change (1 hour)
 
-- Implement day/night cycle so player needs to use lantern at night
-    - Night time is really difficult to play through without the lantern
-    - Buying the lantern is the end of this 'level'
+- Implement day/night cycle so player needs to use lantern at night (still TODO, currently always night)
+    - prompt buy lantern when enough gold (1 hour)
+    - Buying the lantern is the end of this 'level' (45 minutes, not happe with it though)
 
 #### Stretch Goals
 - Make the 'level' feel better:
